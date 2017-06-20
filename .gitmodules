@@ -1,0 +1,6 @@
+[submodule "Sources/ShamirSecretSharingSys"]
+	path = Sources/ShamirSecretSharingSys
+	url = https://github.com/dsprenkels/sss.git
+[submodule "sss"]
+	path = sss
+	url = https://github.com/dsprenkels/sss.git
