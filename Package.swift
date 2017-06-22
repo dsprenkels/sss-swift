@@ -3,8 +3,8 @@
 import PackageDescription
 
 let package = Package(
-    name: "ShamirSecretSharing",
-    targets: [
-        Target(name: "ShamirSecretSharing", dependencies: ["libsss"])
-    ]
+	name: "ShamirSecretSharing",
+	targets: [
+		Target(name: "ShamirSecretSharing", dependencies: ["libsss"])
+	]
 )
