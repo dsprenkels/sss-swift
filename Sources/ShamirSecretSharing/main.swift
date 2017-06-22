@@ -1,10 +1,21 @@
 import libsss
 
-func CreateShares(data: [UInt8], n: Int, k: Int) -> [[UInt8]] {
-    // TODO(dsprenkels):
-    //  - Check if `data` size is `sss_mlen`
-    //  - Check if 1 <= `n` <= 255
-    //  - Check if 1 <= `k` <= `k`
+enum CreateSharesError: Error {
+    case invalidDataLength
+    case invalidNParam
+    case invalidKParam
+}
+
+func CreateShares(data: [UInt8], n: Int, k: Int) throws -> [[UInt8]] {
+    if data.count != sss_mlen {
+        throw CreateSharesError.invalidDataLength
+    }
+    if n < 1 || n > 255 {
+        throw CreateSharesError.invalidNParam
+    }
+    if k < 1 || k > n {
+        throw CreateSharesError.invalidKParam
+    }
 
     let share_len = MemoryLayout<sss_Share>.size
     let out = UnsafeMutablePointer<UInt8>.allocate(capacity: n * share_len)
@@ -29,4 +40,5 @@ func CreateShares(data: [UInt8], n: Int, k: Int) -> [[UInt8]] {
 
 
 let data = Array<UInt8>.init(repeating: 42, count: 64)
-print(CreateShares(data: data, n: 5, k: 3))
+let shares = try? CreateShares(data: data, n: 5, k: 3)
+print(shares ?? "error")
