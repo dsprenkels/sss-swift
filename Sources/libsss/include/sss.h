@@ -8,6 +8,7 @@
 #define sss_INCLUDE_SSS_H_
 
 #include "../sss.h"
+#include "../hazmat.h"
 #include <unistd.h>
 
 
@@ -19,6 +20,7 @@ we should define them as static constants.
 const size_t sss_mlen = sss_MLEN;
 const size_t sss_clen = sss_CLEN;
 const size_t sss_share_len = sss_SHARE_LEN;
+const size_t sss_keyshare_len = sss_KEYSHARE_LEN;
 
 
 #endif /* sss_INCLUDE_SSS_H_ */
