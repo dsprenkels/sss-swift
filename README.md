@@ -9,7 +9,7 @@ These are the Swift bindings for my Shamir secret sharing library.
 
 ```shell
 # Clone and cd into the source code
-git clone --submodule https://github.com/dsprenkels/sss-swift.git
+git clone --recursive https://github.com/dsprenkels/sss-swift.git
 cd sss-swift
 
 # Build this package
